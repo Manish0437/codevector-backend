@@ -1,4 +1,5 @@
-import express, { json } from "express";
+import express from "express";
+import cors from "cors";
 import productRoutes from "./routes/productRoutes.js";
 import mongoose from "mongoose";
 import Product from "./models/product.js";
