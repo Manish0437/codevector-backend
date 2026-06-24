@@ -8,15 +8,20 @@ dotenv.config();
 
 
 const app = express();
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(",").map((url) => url.trim())
+  : ["http://localhost:5173"];
 
-// app.use(
-//     cors({
-//         origin: allowedOrigins,
-//         methods: ["GET", "POST", "PUT", "DELETE"],
-//         credentials: true,
-//         allowedHeaders: ["Content-Type"],
-//     })
-// );
+console.log("Allowed Origins:", allowedOrigins); // Debug log
+
+app.use(
+    cors({
+        origin: allowedOrigins,
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
+        allowedHeaders: ["Content-Type"],
+    })
+);
 
 const dbUrl = process.env.MONGODB_URL;
 if (!dbUrl) {
