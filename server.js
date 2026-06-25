@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 const allowedOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(",").map((url) => url.trim())
-  : ["http://localhost:5173","https://codevector-frontend-phi.vercel.app"];
+  : ["http://localhost:5173","https://codevector-frontend-kdnur2c4e-manish0437s-projects.vercel.app"];
 
 console.log("Allowed Origins:", allowedOrigins); // Debug log
 
